@@ -11,12 +11,13 @@ app.use(bodyParser.json());
 // Define a route to handle incoming webhook requests
 app.get("/webhook", (req, res) => {
   // Respond with a simple message
-  console.log({res});
-  res.json({ message: "Hello, Webhook!", data: res.data });
+  const queryParams = req.query;
+  const hubModeValue = queryParams["hub.challenge"];
+  res.send(hubModeValue);
 });
 
 // Start the server
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
