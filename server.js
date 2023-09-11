@@ -9,7 +9,7 @@ const app = express();
 app.use(bodyParser.json());
 
 // Define a route to handle incoming webhook requests
-app.post("/webhook", (req, res) => {
+app.get("/webhook", (req, res) => {
   // Respond with a simple message
   res.json({ message: "Hello, Webhook!", data: res.data ?? null });
 });
