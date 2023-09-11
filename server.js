@@ -11,7 +11,8 @@ app.use(bodyParser.json());
 // Define a route to handle incoming webhook requests
 app.get("/webhook", (req, res) => {
   // Respond with a simple message
-  res.json({ message: "Hello, Webhook!", data: res.data ?? null });
+  console.log({res});
+  res.json({ message: "Hello, Webhook!", data: res.data });
 });
 
 // Start the server
