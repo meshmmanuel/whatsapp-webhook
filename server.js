@@ -8,12 +8,15 @@ const app = express();
 // Use bodyParser to parse JSON requests
 app.use(bodyParser.json());
 
-// Define a route to handle incoming webhook requests
 app.get("/webhook", (req, res) => {
-  // Respond with a simple message
   const queryParams = req.query;
   const hubModeValue = queryParams["hub.challenge"];
   res.send(hubModeValue);
+});
+
+app.post("/webhook", (req, res) => {
+  const queryParams = req.query;
+  res.send(queryParams);
 });
 
 // Start the server
